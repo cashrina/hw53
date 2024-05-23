@@ -30,6 +30,8 @@ const App = () => {
         };
         setTasks(prevTasks => [...prevTasks, newTaskData]);
         setTaskData('');
+        const form = event.target as HTMLFormElement;
+        form.reset();
     };
 
     return (

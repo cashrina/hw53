@@ -11,7 +11,7 @@ const AddTaskForm: React.FC<FormProps> = ({onAddTask, onChange}) => {
         <form className="add-task-form" onSubmit={onAddTask}>
             <h6>Create Tasks</h6>
             <label>Add:
-                <input name="name" placeholder="Add a task" type="text" onChange={onChange} required/>
+                <input placeholder="Add a task" type="text" onChange={onChange} required/>
             </label>
             <button type="submit">Add</button>
         </form>
