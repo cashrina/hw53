@@ -15,12 +15,12 @@ const App = () => {
     const onFieldChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const value = event.target.value;
         setTaskData(value);
-    }
+    };
 
     const getRandom = () => {
        const id = Math.random() * 1000000;
         return String(id);
-    }
+    };
 
     const addTask = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
@@ -34,6 +34,15 @@ const App = () => {
         form.reset();
     };
 
+    const removeTask = (id:string) => {
+        setTasks((prevState) => {
+            const tasksCopy = [...prevState];
+            const index = tasksCopy.findIndex((item) => item.id === id);
+            tasksCopy.splice(index, 1);
+            return tasksCopy
+        });
+    };
+
     return (
         <>
             <div>
@@ -44,6 +53,7 @@ const App = () => {
                 <Task
                     task={item.task}
                     key={item.id}
+                    onRemove={() => removeTask(item.id)}
                 />
             ))}
         </>
