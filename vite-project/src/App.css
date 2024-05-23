@@ -14,7 +14,40 @@
   margin-bottom: 10px;
 }
 
+.add-task-form input {
+  margin-left: 10px;
+  margin-bottom: 30px;
+  padding: 10px;
+}
+
+.add-task-form button {
+  padding: 10px 55px 10px 55px;
+  text-align: center;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  box-shadow: 0 0 20px #eee;
+  border-radius: 10px;
+  background-image: linear-gradient(to right, #8300c5 0%, #690bf6 51%, #7600c5 100%);
+}
+
+.add-task-form button:hover {
+  background-position: right center;
+}
+
 .tasks {
   display: flex;
-  margin-bottom: 10px;
+  margin-bottom: 25px;
+  border-bottom: 1px solid #70299a;
+  align-items: center;
+}
+
+.tasks p {
+  margin-right: auto;
+}
+
+.tasks button {
+  padding: 10px;
+  margin-bottom: 20px;
+  margin-top: 10px;
 }
