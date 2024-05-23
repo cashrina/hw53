@@ -1,28 +1,19 @@
-import React, {ChangeEvent, useState} from 'react';
+import React from 'react';
 
 interface FormProps extends React.PropsWithChildren{
-    onAddTask: React.MouseEventHandler;
+    onAddTask: React.FormEventHandler<HTMLFormElement>;
+    onChange: React.ChangeEventHandler<HTMLInputElement>;
 }
 
-const AddTaskForm: React.FC<FormProps> = ({onAddTask}) => {
-    const [taskData, setTaskData] = useState('');
+const AddTaskForm: React.FC<FormProps> = ({onAddTask, onChange}) => {
 
-    const onFielChange = (event: ChangeEvent<HTMLInputElement>) => {
-        const value = event.target.value;
-        setTaskData(value);
-    }
-
-    const onFormSubmit = (event:React.FormEvent) => {
-        event.preventDefault();
-        return taskData;
-    }
     return (
-        <form className="add-task-form" onSubmit={onFormSubmit}>
+        <form className="add-task-form" onSubmit={onAddTask}>
             <h6>Create Tasks</h6>
             <label>Add:
-                <input placeholder="Add a task" type="text" onChange={onFielChange} />
+                <input name="name" placeholder="Add a task" type="text" onChange={onChange} required/>
             </label>
-            <button type="submit" onClick={onAddTask}>Add</button>
+            <button type="submit">Add</button>
         </form>
     );
 };
