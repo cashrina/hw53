@@ -2,6 +2,7 @@ import AddTaskForm from "./AddTaskForm/AddTaskForm.tsx";
 import './App.css'
 import {useState} from "react";
 import Task from "./Task/Task.tsx";
+import task from "./Task/Task.tsx";
 
 const App = () => {
     const [tasks, setTasks] = useState([
@@ -10,9 +11,11 @@ const App = () => {
         {task: 'Do homework', id:'e3'}
     ]);
 
-    const addTask = () => {
-        console.log('add task');
-
+    const addTask = (task) => {
+        // const tasksCopy = tasks.map(task => {
+        //     return
+        // })'
+        setTasks(prevState => [...prevState, task]);
     };
 
     return (
